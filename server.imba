@@ -1,10 +1,14 @@
-import http from 'http'
+import express from 'express'
 
-const server = http.createServer do(req,res)
-	res.end String <html>
-		<head>
-			<title> "Application"
-		<body>
-			<script type='module' src='./app/index.imba'>
+const server = express!
+server.use express.static('./dist')
+
+server.get '/' do(req,res)
+	const html = <html>
+		<head><title> "App"
+		<body><script type='module' src='./app/index.imba'>
+	
+	return res.send html.toString!
+
 
 imba.serve server.listen(process.env.PORT or 3000)

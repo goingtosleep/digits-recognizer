@@ -1,4 +1,13 @@
 {
-    "name": "imba-starter-app",
-    "dependencies": {}
+    "name": "app",
+    "scripts": {
+        "dev": "imba -w server.imba",
+        "start": "imba -w server.imba"
+    },
+    "dependencies": {
+        "@tensorflow/tfjs": "^3.0.0",
+        "express": "^4.17.1",
+        "imba": "^2.0.0-alpha.114",
+        "paper": "^0.12.11"
+    }
 }
