@@ -30,9 +30,9 @@ def getRandomColor
 tag Main
 	<self>
 		<App>
-		<Digit>
+		# <Digit>
 		<Temp>
-		<Snake>
+		# <Snake>
 
 
 tag App
@@ -66,6 +66,8 @@ tag App
 				<div [p:5px] .done=(todo.done) @click.toggleTodo(todo)> todo.title
 
 tag Digit
+	css .shadow bxs:0 4px 8px 0 gray4
+
 	p = new PaperScope!
 	clicked = no
 	model
@@ -133,24 +135,22 @@ tag Digit
 				output.innerHTML += char
 			await sleep(10)
 
-	def render
-		<self>
-			<center><canvas$paperCanvas width=300 height=300 [bg:red3 border-radius:25px]>
-			
-			<br>
-			<div [ta:center]>
-				<button$clear.danger [fs:11] @click=(
-					p.project.clear!
-					$predict.disabled = false
-				)> "Clear"
-				<button$predict.primary [fs:11] @click=(
-					if clicked
-						getResult $paperCanvas
-					else
-						$output.innerHTML = "Please draw a number first!"
-					$predict.disabled = true
-				)> "Predict"
-			<center><p$output [fs:11 c:teal4]> "Write a number."
+	<self ><div[ta:center]>
+		<canvas$paperCanvas .shadow width=300 height=300 [bg:red3 border-radius:20px m:2]>
+		
+		<br>
+		<button$clear.danger [fs:11] @click=(
+			p.project.clear!
+			$predict.disabled = false
+		)> "Clear"
+		<button$predict.primary [fs:11] @click=(
+			if clicked
+				getResult $paperCanvas
+			else
+				$output.innerHTML = "Please draw a number first!"
+			$predict.disabled = true
+		)> "Predict"
+		<p$output [fs:11 c:teal4]> "Write a number."
 
 tag Snake
 	css canvas bg:white bd:1px solid blue4
@@ -194,12 +194,19 @@ tag Snake
 			path.strokeColor = 'blue'
 
 	<self> <div [p:1rem ta:center]>
-		<canvas$cv_snake.canvas width=800 height=500>
+		<canvas$cv_snake.canvas [rd:20px] width=800 height=500>
+
+
+global css @root
+	--grid-2cols: auto-flow / 1fr
+	--grid-2cols@xs: auto-flow / 1fr
+	--grid-2cols@sm: auto-flow / 1fr 1fr
+	--grid-2cols@md: auto-flow / 1fr 1fr
 
 tag Temp
 	css button 
 		p:2 flex:1 rd:5 m:4
-		@active y:-5px shadow:md
+		@hover y:-5px shadow:md
 	css .blue bg:blue2 @hover:blue3 c:blue8
 	css .teal bg:teal2 @hover:teal3 c:teal8
 	css .yellow bg:yellow2 @hover:yellow3 c:yellow8
@@ -207,7 +214,8 @@ tag Temp
 	css input rd:4 p:2 bd:0 bxs:md
 
 	data = {
-		"S = 1/2 a h": ['triangle', 'area']
+		"S = 1/2 a h": ['triangle', 'area'],
+		"\\sin 2x = 2 \\sinx \\cosx": ['sin2x', 'sin(2x)']
 	}
 
 	value = ''
@@ -221,10 +229,38 @@ tag Temp
 				$out.innerHTML = key
 
 	<self>
-		<form [bg:red2 ta:center]>
+		<form [bg:red2 ta:center] @submit.prevent.search(value)>
 			<input bind=value placeholder='Search for...' >
-			<button.teal [bxs:md] @click.prevent.search(value)> "Search"
-		<div$out [m:auto w:40% ta:center p:0.5rem bg:blue3]>
+			<button.teal [bxs:md] type='submit'> "Search"
+		<div$out [m:auto w:40% ta:center p:0.5rem bg:blue3 fs:10]>
+
+		<div [w:80% m:auto bg:red2] [d:grid g:5px ta:center jc:flex-end]>
+			css a px:2 py:1
+			css button m:0 rd:3 fs:8 py:1 bg:green3
+			<button href='#' [gr:1]> "Home"
+			<button href='#' [gr:1]> "About"
+			<button href='#' [gr:1]> "User"
+		
+		<div [bg:red1 p:3 jc:center] [d:grid gtc:40% 40% g:10px]>
+			<div [bg:blue3 ta:center fs:10]> "test 1"
+			<div [bg:blue3 ta:center fs:10]> "test 2"
+			<div [bg:blue3 ta:center fs:10 gc:1 / -1]> "test 3"
+
+		<div [d:grid grid:2cols w:80% @xl:60% g:2px] 
+			[jc:center m:auto]> for i in [1 .. 10]
+			<button [fs:12 bg:red4 m:1 c:gray2]> "Item {i}"
+
+		css button.last gc:1 / -1 @lg:2 / -1
+
+		<div [d:grid w:80% @xl:60% g:2px] 
+			[grid:auto-flow / 1fr @sm:auto-flow / repeat(3, 1fr) @lg:auto-flow / repeat(4, 1fr)]
+			[jc:center m:auto]> for i in [1 .. 10]
+			if i==10
+				<button.last [fs:12 bg:green4 m:1 c:gray2]> "Item {i}"
+			else
+				<button [fs:12 bg:green4 m:1 c:gray2]> "Item {i}"
+	
+
 		
 
 
