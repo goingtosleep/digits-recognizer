@@ -2,12 +2,13 @@
     "name": "app",
     "scripts": {
         "dev": "imba -w server.imba",
-        "start": "imba -w server.imba"
+        "build": "imba build server.imba"
     },
     "dependencies": {
         "@tensorflow/tfjs": "^3.0.0",
         "express": "^4.17.1",
-        "imba": "^2.0.0-alpha.118",
+        "imba": "^2.0.0-alpha.120",
+        "katex": "^0.12.0",
         "paper": "^0.12.11"
     }
 }

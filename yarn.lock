@@ -230,6 +230,11 @@ combined-stream@^1.0.8:
   dependencies:
     delayed-stream "~1.0.0"
 
+commander@^2.19.0:
+  version "2.20.3"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
+  integrity sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==
+
 content-disposition@0.5.3:
   version "0.5.3"
   resolved "https://registry.yarnpkg.com/content-disposition/-/content-disposition-0.5.3.tgz#e130caf7e7279087c5616c2007d0485698984fbd"
@@ -440,10 +445,10 @@ iconv-lite@0.4.24:
   dependencies:
     safer-buffer ">= 2.1.2 < 3"
 
-imba@^2.0.0-alpha.118:
-  version "2.0.0-alpha.118"
-  resolved "https://registry.yarnpkg.com/imba/-/imba-2.0.0-alpha.118.tgz#e2235414c68c75a950e5ca3c43eed6b892fae5d0"
-  integrity sha512-nPzyIJ5v03YX0i3TLM8EjuGr3yYLE+PMkTjZE0Tp8cIMahx6bA9hJUXAvNO2wfD2m47fxVcsnJhYmVfPb+TjxQ==
+imba@^2.0.0-alpha.120:
+  version "2.0.0-alpha.120"
+  resolved "https://registry.yarnpkg.com/imba/-/imba-2.0.0-alpha.120.tgz#97044c6e1725b748b6893a791ecb37fc1819bcb2"
+  integrity sha512-sn2zDdF0i/IHVnM04RFxWxBF0YfqdWyC90C/ScAt3YaSsCeAp7R8AFihE0n5MkBhv9vkvMXU0HCPXOAVigZehg==
   dependencies:
     chokidar "^3.4.3"
     esbuild "^0.8.31"
@@ -491,6 +496,13 @@ is-number@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/is-number/-/is-number-7.0.0.tgz#7535345b896734d5f80c4d06c50955527a14f12b"
   integrity sha512-41Cifkg6e8TylSpdtTpeLVMqvSBEVzTttHvERD741+pnZ8ANv0004MRL43QKPDlK9cGvNp6NZWZUBlbGXYxxng==
+
+katex@^0.12.0:
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/katex/-/katex-0.12.0.tgz#2fb1c665dbd2b043edcf8a1f5c555f46beaa0cb9"
+  integrity sha512-y+8btoc/CK70XqcHqjxiGWBOeIL8upbS0peTPXTvgrh21n1RiWWcIpSWM+4uXq+IAgNh9YYQWdc7LVDPDAEEAg==
+  dependencies:
+    commander "^2.19.0"
 
 media-typer@0.3.0:
   version "0.3.0"
